@@ -17,9 +17,9 @@ import * as React from "react";
 const baseUrl = "https://cdn.jsdelivr.net/gh/sanuei/mailtemple@main/images";
 
 // 社交图标 - 使用 PNG 格式（SVG 在邮件客户端中不被支持）
-// X 图标使用带内置黑色背景的版本，防止 Gmail 深色模式反转
+// X 图标使用 #161616（接近黑色）防止 Gmail 深色模式添加强制白边
 const socialIcons = [
-    { name: "X", url: "https://x.com/UUPAY_Official", icon: `${baseUrl}/icon-x-with-bg.png`, bg: "#000000", noBg: true },
+    { name: "X", url: "https://x.com/UUPAY_Official", icon: `${baseUrl}/icon-x-with-bg.png`, bg: "#161616", noBg: true },
     { name: "Instagram", url: "https://www.instagram.com/uupay_official", icon: `${baseUrl}/icon-instagram.png`, bg: "#E4405F", noBg: false },
     { name: "Discord", url: "https://discord.gg/uupay", icon: `${baseUrl}/icon-discord.png`, bg: "#5865F2", noBg: false },
     { name: "YouTube", url: "https://www.youtube.com/@UUPAY-Official", icon: `${baseUrl}/icon-youtube.png`, bg: "#FF0000", noBg: false },
@@ -145,13 +145,14 @@ export const UupayTransactionEmail = ({
                                     <td key={index} style={{ padding: "0 6px" }}>
                                         <Link href={social.url} style={{ textDecoration: "none" }}>
                                             {social.noBg ? (
-                                                // X 图标已有黑色背景，直接显示全尺寸
+                                                // X 图标已有黑色背景 (#161616)，直接显示全尺寸
+                                                // 移除 CSS borderRadius 以避免渲染白边
                                                 <Img
                                                     src={social.icon}
                                                     width="36"
                                                     height="36"
                                                     alt={social.name}
-                                                    style={{ display: "block", borderRadius: "50%" }}
+                                                    style={{ display: "block" }}
                                                 />
                                             ) : (
                                                 // 其他图标使用 bgcolor 添加彩色背景
