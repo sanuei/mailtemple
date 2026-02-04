@@ -1,0 +1,18 @@
+{
+  "name": "uupay-emails",
+  "version": "1.0.0",
+  "description": "UUPAY Email Templates using React Email",
+  "scripts": {
+    "dev": "email dev",
+    "export": "email export"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.0.31",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-email": "^3.0.4"
+  },
+  "devDependencies": {
+    "@react-email/preview-server": "^5.2.5"
+  }
+}
