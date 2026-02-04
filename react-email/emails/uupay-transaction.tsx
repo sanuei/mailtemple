@@ -137,58 +137,19 @@ export const UupayTransactionEmail = ({
                             Empowering every transaction with freedom
                         </Text>
 
-                        {/* Social Icons - 使用 table 实现水平排列 */}
-                        {/* X 图标使用内置黑色背景的图片，其他图标使用 bgcolor 添加彩色背景 */}
+                        {/* Social Icons - 使用 table 实现水平排列 (无背景圆圈) */}
                         <table cellPadding="0" cellSpacing="0" style={{ margin: "0 auto 24px auto" }}>
                             <tr>
                                 {socialIcons.map((social, index) => (
-                                    <td key={index} style={{ padding: "0 6px" }}>
+                                    <td key={index} style={{ padding: "0 12px" }}>
                                         <Link href={social.url} style={{ textDecoration: "none" }}>
-                                            {social.noBg ? (
-                                                // X 图标已有黑色背景 (#161616)，直接显示全尺寸
-                                                // 移除 CSS borderRadius 以避免渲染白边
-                                                <Img
-                                                    src={social.icon}
-                                                    width="36"
-                                                    height="36"
-                                                    alt={social.name}
-                                                    style={{ display: "block" }}
-                                                />
-                                            ) : (
-                                                // 其他图标使用 bgcolor 添加彩色背景
-                                                <table
-                                                    cellPadding="0"
-                                                    cellSpacing="0"
-                                                    width="36"
-                                                    height="36"
-                                                    style={{ borderRadius: "50%", overflow: "hidden" }}
-                                                >
-                                                    <tr>
-                                                        <td
-                                                            align="center"
-                                                            valign="middle"
-                                                            width="36"
-                                                            height="36"
-                                                            // @ts-ignore - bgcolor is valid HTML attribute
-                                                            bgcolor={social.bg}
-                                                            style={{
-                                                                backgroundColor: social.bg,
-                                                                borderRadius: "50%",
-                                                                width: "36px",
-                                                                height: "36px",
-                                                            }}
-                                                        >
-                                                            <Img
-                                                                src={social.icon}
-                                                                width="18"
-                                                                height="18"
-                                                                alt={social.name}
-                                                                style={{ display: "block", margin: "0 auto" }}
-                                                            />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            )}
+                                            <Img
+                                                src={social.icon}
+                                                width="36"
+                                                height="36"
+                                                alt={social.name}
+                                                style={{ display: "block", width: "36px", height: "36px" }}
+                                            />
                                         </Link>
                                     </td>
                                 ))}
